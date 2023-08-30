@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import com.backend.expense_tracker.model.Expense;
 import com.backend.expense_tracker.repository.ExpenseRepository;
 
+
+import jakarta.persistence.EntityManagerFactory;
+
 @Service
 public class ExpenseService {
     private static ExpenseRepository expenseRepository;

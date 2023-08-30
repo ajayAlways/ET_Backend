@@ -4,13 +4,22 @@ import java.time.LocalDate;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.TableGenerator;
 
 @Entity
 @Table
 public class Expense {
+    @TableGenerator(name = "expense_id_generator",
+            table = "expense_id_generator",
+            pkColumnName = "expense_id",
+            valueColumnName = "expense_value",
+            allocationSize = 1,
+            initialValue = 20)
     @Id
+    @GeneratedValue(strategy = jakarta.persistence.GenerationType.TABLE, generator = "expense_id_generator")
     private Long id;
     private String expenseTitle;
     @Nullable
